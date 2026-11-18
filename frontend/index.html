@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Predictor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN SECTION -->
+
+    <div class="container" id="loginSection">
+
+        <h1>Student Performance Predictor</h1>
+
+        <p>Sign in to access your personalized prediction dashboard.</p>
+
+        <div id="g_id_onload"
+             data-client_id="858705906329-5q1rhr4m9r1i0gmn02fc6soj4klf8clj.apps.googleusercontent.com"
+             data-callback="handleGoogleCredential"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-size="large"
+             data-theme="outline"
+             data-text="signin_with"
+             data-shape="rectangular"
+             data-logo_alignment="left">
+        </div>
+
+        <p id="loginError"></p>
+
+    </div>
+
+
+    <!-- MAIN APPLICATION -->
+
+    <div class="container" id="appSection" hidden>
+
+        <div class="profile">
+
+            <img id="userPicture" alt="Profile picture">
+
+            <div>
+                <h3 id="userName"></h3>
+                <p id="userEmail"></p>
+            </div>
+
+            <button type="button" id="logoutButton">
+                Sign Out
+            </button>
+
+        </div>
+
+
+        <h1>Student Performance Predictor</h1>
+
+        <p>Enter student details to predict academic performance.</p>
+
+
+        <!-- PREDICTION FORM -->
+
+        <form id="predictionForm">
+
+            <label>Study Hours</label>
+            <input type="number" id="study_hours"
+                   min="0" max="24" step="any" required>
+
+            <label>Attendance (%)</label>
+            <input type="number" id="attendance"
+                   min="0" max="100" step="any" required>
+
+            <label>Previous Score</label>
+            <input type="number" id="previous_score"
+                   min="0" max="100" step="any" required>
+
+            <label>Assignment Score</label>
+            <input type="number" id="assignment_score"
+                   min="0" max="100" step="any" required>
+
+            <button type="submit" id="predictButton">
+                Predict Performance
+            </button>
+
+        </form>
+
+
+        <div id="result"></div>
+        <div id="error"></div>
+
+
+        <hr>
+
+        <h2>My Prediction History</h2>
+
+        <button type="button" id="historyButton">
+            Refresh History
+        </button>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Study Hours</th>
+                        <th>Attendance</th>
+                        <th>Previous Score</th>
+                        <th>Assignment Score</th>
+                        <th>Predicted Score</th>
+                        <th>Performance</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+    <script src="https://accounts.google.com/gsi/client"
+            async defer>
+    </script>
+
+</body>
+</html>

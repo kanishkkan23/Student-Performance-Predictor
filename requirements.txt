@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+joblib
+google-auth
+python-jose[cryptography]
+python-dotenv
